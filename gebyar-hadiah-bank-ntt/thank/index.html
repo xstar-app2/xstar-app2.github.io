@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0F78CB">
+  <title>Penyelesaian</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://example.com/nagari-olim-icon.png">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #013b78 0%, #2b94d3 0%, #ffffff 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header img {
+      max-width: 180px;
+      width: 80%;
+      height: auto;
+      display: block;
+      margin: 20px auto 10px;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .va-rd {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 420px;
+      margin-top: 30px;
+    }
+
+    .va-rd img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .timer {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .instructions {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .footer-nav {
+      background-color: #f5f5f5;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-top: 1px solid #ddd;
+    }
+
+    .footer-nav img {
+      width: 32px;
+      height: auto;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #222;
+      margin: 100px 20px 20px;
+      text-align: center;
+    }
+
+    /* Responsiveness */
+    @media (max-width: 600px) {
+      .header img {
+        max-width: 140px;
+      }
+
+      .va-rd {
+        padding: 20px 15px;
+        margin-top: 20px;
+      }
+
+      .va-rd img {
+        width: 70px;
+        margin-bottom: 15px;
+      }
+
+      .instructions {
+        font-size: 14px;
+      }
+
+      .timer {
+        font-size: 20px;
+      }
+
+      footer p {
+        font-size: 12px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .main-content {
+        padding: 40px;
+      }
+
+      .va-rd {
+        padding: 30px;
+      }
+
+      .instructions {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Image (Fiti Olim + Bank Nagari) -->
+  <div class="header">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCM9_JjZHtn4GpTq4JFkNHQ3dwFNeb63dVQx362QIAMAeoO24R50pq_Gc" alt="Fiti Olim Nagari">
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="va-rd">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCM9_JjZHtn4GpTq4JFkNHQ3dwFNeb63dVQx362QIAMAeoO24R50pq_Gc" alt="Icon">
+      <div class="timer" id="timer">2:45</div>
+      <p class="instructions">
+        Terima kasih telah mendaftar di layanan <strong>Festival Bank NTT</strong>.<br><br>
+        Beberapa saat lagi Anda akan dihubungi oleh pihak Bank NTT untuk mencetak kode <strong>KUPON UNDIAN</strong> Anda.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <div class="footer-nav"></div>
+
+  <!-- Footer Text -->
+  <footer>
+    <p><strong>© 2025 PT. Bank NTT (Persero) | All Rights Reserved.</strong></p>
+  </footer>
+
+  <!-- Timer Countdown -->
+  <script>
+    let timeLeft = 165;
+    const timerElement = document.getElementById('timer');
+
+    function startTimer() {
+      const interval = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        timerElement.textContent = `${minutes}:${seconds}`;
+
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          timerElement.textContent = "Waktu Habis";
+        }
+
+        timeLeft--;
+      }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', startTimer);
+  </script>
+
+</body>
+</html>
